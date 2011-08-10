@@ -10,6 +10,19 @@ then
   ls --color -d . &>/dev/null 2>&1 && alias ls='ls --color=tty' || alias ls='ls -G'
 fi
 
+# Setup color defines
+autoload colors zsh/terminfo
+if [[ "$terminfo[colors]" -ge 8 ]]; then
+	colors
+fi
+
+for color in red green yellow blue magenta cyan white
+do
+	eval $color="%{$fg[$color]%}"
+	eval ${color}B="%{$terminfo[bold]$fg[$color]%}"
+done
+RESET="%{$terminfo[sgr0]%}"
+
 #setopt no_beep
 setopt auto_cd
 setopt multios

@@ -1,3 +1,5 @@
+# Available colors (Add "B" onto the end for the bold version -- eg. $cyanB ):
+# $red $green $yellow $blue $magenta $cyan $white
 local color1=$white
 local color2=$green
 
